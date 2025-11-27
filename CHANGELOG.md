@@ -1,3 +1,15 @@
+# [0.1.0](https://github.com/dk521123/rust_rest/compare/v0.0.0...v0.1.0) (2025-11-27)
+
+
+### Bug Fixes
+
+* To update pgAdmin (You are currently running version 9.8 of pgAdmin 4, ([8b0b377](https://github.com/dk521123/rust_rest/commit/8b0b377e36821e5aae91feccbfe0ebcc25f92206))
+
+
+### Features
+
+* To add postgreSQL ([923ca58](https://github.com/dk521123/rust_rest/commit/923ca58dea7c82483092eeb865a1900798d2edb8))
+
 # 1.0.0 (2025-11-27)
 
 

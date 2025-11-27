@@ -15,7 +15,7 @@ services:
       retries: 5
   # Only for development
   pgadmin:
-    image: dpage/pgadmin4:9.8
+    image: dpage/pgadmin4:9.10
     container_name: pgadmin_rust_rest
     hostname: pgadmin
     restart: always

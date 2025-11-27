@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_rust_rest
+    volumes:
+      - volume_postgres_rust_rest:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+  # Only for development
+  pgadmin:
+    image: dpage/pgadmin4:9.10
+    container_name: pgadmin_rust_rest
+    hostname: pgadmin
+    restart: always
+    ports:
+      - 18080:80
+    volumes:
+      - volume_pgadmin_rust_rest:/var/lib/pgadmin
+      - ./develop_only/pgadmin/servers.json:/pgadmin4/servers.json
+      - ./develop_only/pgadmin/pgpass:/pgpass
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  volume_postgres_rust_rest:
+    name: v_postgres_rust_rest
+  volume_pgadmin_rust_rest:
+    name: v_pgadmin_rust_rest
